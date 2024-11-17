@@ -1,18 +1,24 @@
 <template>
-    <h1>KNN + MobileNet Classifier</h1>
-    <h2>Bunnies vs Sports Cars</h2>
+    <h1>Delivery Address Verification</h1>
+    <h2>Front Door Recognition System</h2>
     <div id="examples">
-      <img id="bunny1" class="example" src="./assets/knn/bunny1.jpg" />
-      <img id="bunny2" class="example" src="./assets/knn/bunny2.jpg" />
-      <img id="bunny3" class="example" src="./assets/knn/bunny3.jpg" />
-      <p>VS</p>
-      <img id="sport1" class="example" src="./assets/knn/sport1.jpg" />
-      <img id="sport2" class="example" src="./assets/knn/sport2.jpg" />
-      <img id="sport3" class="example" src="./assets/knn/sport3.jpg" />      
+      <div class="door-group">
+        <h3>Random Front Doors</h3>
+        <img id="door1" class="example" src="./assets/knn/door1.jpg" />
+        <img id="door2" class="example" src="./assets/knn/door2.jpg" />
+        <img id="door3" class="example" src="./assets/knn/door3.jpg" />
+        <img id="door4" class="example" src="./assets/knn/door4.jpg" />
+        <img id="door5" class="example" src="./assets/knn/door5.jpg" />
+      </div>
+      <div class="door-group">
+        <h3>Correct Delivery Address</h3>
+        <img id="mydoor1" class="example" src="./assets/knn/mydoor1.jpg" />
+        <img id="mydoor2" class="example" src="./assets/knn/mydoor2.jpg" />
+      </div>
     </div>
     <div id="testContainer">
-      <p>AI believes the following photo is...</p>
-      <img id="test" class="test" src="./assets/knn/test.jpeg" />
+      <p>Verifying delivery location...</p>
+      <img id="test" class="test" src="./assets/knn/wrong-delivery-test.jpg" />
       <h2 id="result">???</h2>
     </div>
 </template>
@@ -27,16 +33,22 @@ runKNN()
 #examples {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-#examples p {
-  font-weight: bold;
-  padding: 10px;
+.door-group {
+  text-align: center;
+}
+
+.door-group h3 {
+  margin-bottom: 10px;
 }
 
 .example {
   height: 14VW;
+  margin: 5px;
 }
 
 #test {
@@ -48,5 +60,6 @@ runKNN()
   justify-content: center;
   align-items: center;  
   flex-direction: column;
+  margin-top: 20px;
 }
 </style>

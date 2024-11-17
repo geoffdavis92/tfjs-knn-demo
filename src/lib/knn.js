@@ -10,22 +10,23 @@ async function runKNN() {
   // Use MobileNet to get features
   mobileNet = await mobilenet.load();
 
-  // Add examples of two classes
-  addExample('bunny1', 0)
-  addExample('bunny2', 0)
-  addExample('bunny3', 0)
-  addExample('sport1', 1)
-  addExample('sport2', 1)
-  addExample('sport3', 1)
+  // Add examples of random doors (class 0) and your door (class 1)
+  addExample('door1', 0)
+  addExample('door2', 0)
+  addExample('door3', 0)
+  addExample('door4', 0)
+  addExample('door5', 0)
+  addExample('mydoor1', 1)
+  addExample('mydoor2', 1)
   
-  // Moment of truth
+  // Verify delivery location
   const testImage = document.getElementById('test')
   const testFeature = mobileNet.infer(testImage, true);
   const predicted = await classifier.predictClass(testFeature)
-  if (predicted.classIndex === 0) {
-    document.getElementById("result").innerText = "A Bunny"
+  if (predicted.classIndex === 1) {
+    document.getElementById("result").innerText = "✅ Correct Delivery Address"
   } else {
-    document.getElementById("result").innerText = "A Sports Car"
+    document.getElementById("result").innerText = "❌ Wrong Address - Please Double Check"
   }
 }
 
